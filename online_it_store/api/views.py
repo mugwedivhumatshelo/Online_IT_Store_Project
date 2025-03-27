@@ -1,10 +1,10 @@
 from django.shortcuts import render
-
-# Create your views here.
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from .serializers import UserSerializer
-from .models import User
+from .models import Product, Service
+from .serializers import ProductSerializer, ServiceSerializer
+
+# Create your views here.
 
 class UserView(APIView):
     def post(self, request):
@@ -30,4 +30,33 @@ class UserView(APIView):
 
     def post(self, request):
         # ...
+class ProductListView(APIView):
+    def get(self, request):
+        products = Product.objects.all()
+        serializer = ProductSerializer(products, many=True)
+        return Response(serializer.data)
+
+class ServiceListView(APIView):
+    def get(self, request):
+        services = Service.objects.all()
+        serializer = ServiceSerializer(services, many=True)
+        return Response(serializer.data)
+
+class ProductDetailView(APIView):
+    def get(self, request, pk):
+        try:
+            product = Product.objects.get(pk=pk)
+            serializer = ProductSerializer(product)
+            return Response(serializer.data)
+        except Product.DoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+
+class ServiceDetailView(APIView):
+    def get(self, request, pk):
+        try:
+            service = Service.objects.get(pk=pk)
+            serializer = ServiceSerializer(service)
+            return Response(serializer.data)
+        except Service.DoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)
 
