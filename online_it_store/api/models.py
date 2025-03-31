@@ -1,13 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
-from .models import Product, Service
-
-# Create your models here.
 
 class User(AbstractUser):
     email = models.EmailField(unique=True)
     username = models.CharField(max_length=255, unique=True)
-
 
 class Product(models.Model):
     name = models.CharField(max_length=255)
@@ -26,6 +22,7 @@ class Service(models.Model):
 
     def __str__(self):
         return self.name
+
 class Cart(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE, null=True, blank=True)
@@ -35,6 +32,7 @@ class Cart(models.Model):
 
     def __str__(self):
         return f"{self.user.username} - {self.product.name if self.product else self.service.name}"
+
 class Order(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE, null=True, blank=True)
@@ -45,5 +43,4 @@ class Order(models.Model):
 
     def __str__(self):
         return f"{self.user.username} - {self.total}"
-
 
