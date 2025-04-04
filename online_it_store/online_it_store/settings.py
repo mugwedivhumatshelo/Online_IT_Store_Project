@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-#e_q!bh^tdx6n2rvt8i=5xowt4(n=*z3j9lff!vs^qapw^r^c3
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ['']
 
 
 # Application definition
@@ -89,13 +89,13 @@ WSGI_APPLICATION = 'online_it_store.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'online_it_store',
-        'USER': 'root',
-        'PASSWORD': 'Futuree@2021',
-        'HOST': 'localhost',
-        'PORT': '3306',
+    "default": {
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": "online_it_store",
+        "USER": "root",
+        "PASSWORD": "Futuree@2021",
+        "HOST": "127.0.0.1",
+        "PORT": "3306",
     }
 }
 
