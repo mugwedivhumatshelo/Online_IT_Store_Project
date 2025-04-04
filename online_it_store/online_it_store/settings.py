@@ -93,7 +93,7 @@ DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
         "NAME": "online_it_store",
-        "USER": "mydb",
+        "USER": "root",
         "PASSWORD": "Futuree@2021",
         "HOST": "localhost",
         "PORT": "3306",
