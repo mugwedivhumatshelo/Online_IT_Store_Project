@@ -20,15 +20,15 @@ import environ
 env = environ.Env()
 
 # Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
+# See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-#e_q!bh^tdx6n2rvt8i=5xowt4(n=*z3j9lff!vs^qapw^r^c3'
+SECRET_KEY = 'django-insecure-#phjuvrf0y-e3lh@3x)%_k763@*q)j81#1m#7b5l8ivv*g-i0#i'
 
-# SECURITY WARNING: don't run with debug turned on in production!
+#SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['']
+ALLOWED_HOSTS = ['%']
 
 
 # Application definition
@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'api',
+    'environ',
 ]
 
 MIDDLEWARE = [
@@ -92,9 +93,9 @@ DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
         "NAME": "online_it_store",
-        "USER": "root",
+        "USER": "mydb",
         "PASSWORD": "Futuree@2021",
-        "HOST": "127.0.0.1",
+        "HOST": "localhost",
         "PORT": "3306",
     }
 }
