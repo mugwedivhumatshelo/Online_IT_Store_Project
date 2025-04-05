@@ -57,8 +57,8 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    'http://localhost:8000',
-    'http://127.0.0.1:8000',
+    'http://localhost:3306',
+    'http://127.0.0.1:3306',
 ]
 
 REST_FRAMEWORK = {
@@ -96,8 +96,12 @@ WSGI_APPLICATION = 'online_it_store.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'online_it_store',
+        'USER': 'root',
+        'PASSWORD': 'Futuree@2021',
+        'HOST': 'localhost',
+        'PORT': '3306',
     }
 }
 
