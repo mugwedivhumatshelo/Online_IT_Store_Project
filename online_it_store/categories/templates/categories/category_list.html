@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Category List</title>
+    <link rel="stylesheet" href="{% static 'categories/css/style.css' %}">
+</head>
+<body>
+    <h1>Category List</h1>
+    <ul>
+        {% for category in categories %}
+            <li>{{ category.name }}</li>
+        {% endfor %}
+    </ul>
+    <script src="{% static 'categories/js/script.js' %}"></script>
+</body>
+</html>
+

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Order Detail</title>
+    <link rel="stylesheet" href="{% static 'orders/css/style.css' %}">
+</head>
+<body>
+    <h1>Order Detail</h1>
+    <p>Order {{ order.id }} by {{ order.user.username }} ({{ order.total_price }})</p>
+    <p>Product: {{ order.product.name }}</p>
+    <p>Quantity: {{ order.quantity }}</p>
+    <script src="{% static 'orders/js/script.js' %}"></script>
+</body>
+</html>
+
