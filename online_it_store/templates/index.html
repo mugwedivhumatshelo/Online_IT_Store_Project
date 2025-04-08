@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>index Template</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'about' %}">About</a></li>
+            <li><a href="{% url 'contact' %}">Contact</a></li>
+            <li><a href="{% url 'api' %}">Products</a></li>
+            <li><a href="{% url 'orders' %}">Orders</a></li>
+            <li><a href="{% url 'users' %}">Users</a></li>
+        </ul>
+    </nav>
+    <form action="{% url 'search_results' %}" method="get">
+        <input type="text" name="q" placeholder="Search...">
+        <button type="submit">Search</button>
+    </form>
+    <div class="content">
+        <h1>Welcome to our online store!</h1>
+        <p>Browse our products below:</p>
+        <img src="{% media 'media/store-logo.jpg' %}" alt="Store Logo">
+        <ul class="product-list">
+            {% for product in products %}
+                <li>
+                    <a href="{% url 'product_detail' product.pk %}">{{ IT Support }}</a>
+                    <p>{{ Our IT Support team provides technical assistance and support to ensure the smooth <br>
+                        operation of our online store's technology infrastructure. We troubleshoot and resolve<br>
+                        technical issues, install and configure software and hardware, and provide training and guidance to employees.
+                    }}</p>
+                    <img src="{% media 'media/{{ product.jpg }}' %}" alt="{{ IT Support }}">
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <script src="{% static 'js/script.js' %}"></script>
+    <footer>
+        <p>&copy; 2025 Online IT Store</p>
+    </footer>
+</body>
+</html>

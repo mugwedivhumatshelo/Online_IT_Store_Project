@@ -2,12 +2,21 @@
 <html>
 <head>
     <title>Product Detail</title>
-    <link rel="stylesheet" href="{% static 'products/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'api/css/api_style.css' %}">
 </head>
 <body>
+    <nav>
+        <ul>
+            <li><a href="{% url 'product_list' %}">Product List</a></li>
+            <li><a href="{% url 'category_list' %}">Category List</a></li>
+        </ul>
+    </nav>
     <h1>Product Detail</h1>
     <p>{{ product.name }} ({{ product.price }})</p>
     <p>{{ product.description }}</p>
+    <footer>
+        <p>&copy; 2023 Online IT Store</p>
+    </footer>
+    <script src="{% static 'api/js/api_script.js' %}"></script>
 </body>
 </html>
-

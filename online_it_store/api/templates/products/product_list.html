@@ -2,15 +2,17 @@
 <html>
 <head>
     <title>Product List</title>
-    <link rel="stylesheet" href="{% static 'products/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'api/css/api_style.css' %}">
 </head>
 <body>
     <h1>Product List</h1>
-    <ul>
+    <ul id="product-list">
         {% for product in products %}
-            <li>{{ product.name }} ({{ product.price }})</li>
+        <li class="product-list-item">
+            {{ product.name }} ({{ product.price }})
+        </li>
         {% endfor %}
     </ul>
+    <script src="{% static 'api/js/api_script.js' %}"></script>
 </body>
 </html>
-

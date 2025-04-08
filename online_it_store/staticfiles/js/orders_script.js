@@ -1,19 +1,25 @@
-// Get all order list items
-const orderListItems = document.querySelectorAll('ul li');
+document.addEventListener('DOMContentLoaded', event => {
+    const orderList = document.querySelector('ul');
+    if (orderList) {
+        orderList.addEventListener('mouseover', event => {
+            if (event.target.tagName === 'LI') {
+                event.target.style.backgroundColor = '#f5f5f5';
+            }
+        });
+        orderList.addEventListener('mouseout', event => {
+            if (event.target.tagName === 'LI') {
+                event.target.style.backgroundColor = '';
+            }
+        });
+    }
 
-// Add event listener to each order list item
-orderListItems.forEach((item) => {
-    item.addEventListener('click', () => {
-        // Get the order id and user from the list item
-        const orderId = item.textContent.split(' ')[1];
-        const orderUser = item.textContent.split(' ')[3];
-
-        // Create a new order detail page
-        const orderDetailPage = window.open('', '_blank');
-        orderDetailPage.document.write(`
-            <h1>Order Detail</h1>
-            <p>Order ${orderId} by ${orderUser}</p>
-        `);
-    });
+    const orderDetail = document.querySelector('.order-detail');
+    if (orderDetail) {
+        orderDetail.addEventListener('mouseover', event => {
+            orderDetail.style.boxShadow = '0 0 20px rgba(0, 0, 0, 0.2)';
+        });
+        orderDetail.addEventListener('mouseout', event => {
+            orderDetail.style.boxShadow = '0 0 10px rgba(0, 0, 0, 0.1)';
+        });
+    }
 });
-

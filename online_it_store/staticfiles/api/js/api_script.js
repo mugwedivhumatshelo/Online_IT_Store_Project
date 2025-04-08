@@ -1,19 +1,38 @@
-// Get all product list items
-const productListItems = document.querySelectorAll('ul li');
+// Add event listener to navigation links
+document.querySelectorAll('nav a').forEach(link => {
+    link.addEventListener('click', event => {
+        event.preventDefault();
+        const url = link.getAttribute('href');
+        fetch(url)
+            .then(response => response.text())
+            .then(html => {
+                document.body.innerHTML = html;
+            })
+            .catch(error => console.error(error));
+    });
+});
 
-// Add event listener to each product list item
-productListItems.forEach((item) => {
-    item.addEventListener('click', () => {
-        // Get the product name and price from the list item
-        const productName = item.textContent.split('(')[0].trim();
-        const productPrice = item.textContent.split('(')[1].split(')')[0].trim();
+// Add event listener to product list items
+document.querySelectorAll('.product-list-item').forEach(item => {
+    item.addEventListener('mouseover', event => {
+        item.style.backgroundColor = '#f5f5f5';
+    });
+    item.addEventListener('mouseout', event => {
+        item.style.backgroundColor = '';
+    });
+});
 
-        // Create a new product detail page
-        const productDetailPage = window.open('', '_blank');
-        productDetailPage.document.write(`
-            <h1>Product Detail</h1>
-            <p>${productName} (${productPrice})</p>
-        `);
+// Add event listener to product list pagination
+document.querySelectorAll('.pagination a').forEach(link => {
+    link.addEventListener('click', event => {
+        event.preventDefault();
+        const url = link.getAttribute('href');
+        fetch(url)
+            .then(response => response.text())
+            .then(html => {
+                document.body.innerHTML = html;
+            })
+            .catch(error => console.error(error));
     });
 });
 
